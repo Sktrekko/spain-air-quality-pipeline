@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: raw
+    database: "{{ env_var('BQ_PROJECT', 'aire-espania-pipeline') }}"
+    schema: raw
+    tables:
+      - name: mediciones_madrid
+        description: "Mediciones horarias de calidad del aire — Red de Madrid"
+        columns:
+          - name: estacion
+            description: "Código de estación de medición"
+          - name: magnitud
+            description: "Contaminante medido (NO2, PM10, O3...)"
+          - name: fecha_hora
+            description: "Timestamp UTC de la medición"
+          - name: valor
+            description: "Valor numérico del contaminante"

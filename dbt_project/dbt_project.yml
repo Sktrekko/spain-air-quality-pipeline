@@ -1,0 +1,28 @@
+name: 'aire_espana'
+version: '1.0.0'
+config-version: 2
+
+profile: 'aire_espana'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  aire_espana:
+    staging:
+      +materialized: view
+      +schema: dbt_staging
+    intermediate:
+      +materialized: table
+      +schema: dbt_intermediate
+    marts:
+      +materialized: table
+      +schema: dbt_marts

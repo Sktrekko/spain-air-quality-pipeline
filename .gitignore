@@ -1,0 +1,29 @@
+# Notas personales (no van al repo)
+GUIA_PERSONAL.md
+
+# Entorno virtual
+venv/
+
+# Credenciales y variables de entorno
+.env
+*.json
+!package.json
+!dbt_project.json
+
+# dbt
+dbt_project/target/
+dbt_project/dbt_packages/
+dbt_project/logs/
+profiles.yml
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+dist/
+build/
+
+# Sistema
+.DS_Store
+*.swp
