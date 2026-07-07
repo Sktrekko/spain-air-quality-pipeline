@@ -26,10 +26,12 @@ log = logging.getLogger(__name__)
 CKAN_API = "https://datos.madrid.es/api/action/resource_show"
 RESOURCE_ID = "201200-1-calidad-aire-horario-csv"
 
-GCS_BUCKET = os.environ["GCS_BUCKET"]
-BQ_PROJECT = os.environ["BQ_PROJECT"]
-BQ_DATASET = os.environ.get("BQ_DATASET", "raw")
-BQ_TABLE   = os.environ.get("BQ_TABLE", "mediciones_madrid")
+# .strip() porque los secrets de GitHub pueden llegar con espacios/saltos
+# de línea accidentales, y BigQuery rechaza el project id con espacios.
+GCS_BUCKET = os.environ["GCS_BUCKET"].strip()
+BQ_PROJECT = os.environ["BQ_PROJECT"].strip()
+BQ_DATASET = os.environ.get("BQ_DATASET", "raw").strip()
+BQ_TABLE   = os.environ.get("BQ_TABLE", "mediciones_madrid").strip()
 
 MAGNITUDES = {
     1: "SO2", 6: "CO", 7: "NO", 8: "NO2", 9: "PM2_5",
