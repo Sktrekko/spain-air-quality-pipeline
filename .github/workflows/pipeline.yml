@@ -1,8 +1,10 @@
 name: Pipeline calidad del aire
 
 on:
-  schedule:
-    - cron: '0 * * * *'   # cada hora en punto
+  # Ejecución automática desactivada para no consumir cuota de BigQuery/GCS.
+  # Para reactivarla, descomenta estas dos líneas:
+  # schedule:
+  #   - cron: '0 * * * *'   # cada hora en punto
   workflow_dispatch:        # lanzamiento manual desde GitHub
 
 jobs:
